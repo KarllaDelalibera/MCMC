@@ -66,6 +66,7 @@ def mcmc(N=1000, k={"t1":100, "t2":1, "t3":1}, x=[], v=[]):
                 teste = (t1/t2)
             else:
                 M[j].append( np.random.gamma(shape = M[j][-1]*k[j], scale = k[j], size = 1) )
+                lista = [ [ M[l][-1] for l in M.keys()] , [ M[l][-1] if l!=j else M[l][-2] for l in M.keys() ] ]
                 t1 =  gamma.pdf(M[j][-1],  shape= hiper[j][0], scale = hiper[j][1]) * L(x, v, lista[0]) * gamma.pdf(M[j][-2], shape = M[j][-1]*k[j], scale = k[j])
                 t2 =  gamma.pdf(M[j][-2],  shape= hiper[j][0], scale = hiper[j][1]) * L(x, v, lista[1]) * gamma.pdf(M[j][-1], shape = M[j][-2]*k[j], scale = k[j])          
 
