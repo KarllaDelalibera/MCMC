@@ -1,9 +1,3 @@
-rm(list=ls(all=TRUE))
-
-V=c(190,220,240,260)
-temp=matrix(c(7228,7228,7228,8448,9167,9167,9167,9167,10511,10511,1764,2436,2436,2436,2436,2436,3108,3108,3108,3108,1175,1175,1521,1569,1617,1665,1665,1713,1761,1953,600,744,744,744,912,1128,1320,1464,1608,1898),10,4)
-
-A = apply(temp, 2, sum)
 
 fx = function(a, v, t)
 {
@@ -102,20 +96,6 @@ ts.plot(MB[,3],ylab=expression(paste(rho)))
 acf(MB[,1],ylab=expression(paste(beta)))
 acf(MB[,2],ylab=expression(paste(alpha)))
 acf(MB[,3],ylab=expression(paste(rho)))
-
-############################################
-### GRAFICO DA DENSIDADE A POSTERIORI
-
-hist(MB[,1])
-hist(MB[,2])
-hist(MB[,3])
-
-############################################
-### INTERVALO DE CREDIBILIDADE
-
-ICbeta = quantile(MB[,1], c(0.025, 0.975))
-ICalfa = quantile(MB[,2], c(0.025, 0.975))
-ICrho = quantile(MB[,3], c(0.025, 0.975))
 
 ### INTERVALO HPD
 
