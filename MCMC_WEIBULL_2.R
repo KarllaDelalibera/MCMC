@@ -17,7 +17,7 @@ fx = function(a, v, t)
 L = function(x, v, t)
 {
 	a = apply(x, 2, sum) 
-	return ( prod(fx(a,v,t)) )   # produtório da minha função fx
+	return ( prod(fx(a,v,t)) ) 
 }
 
 
@@ -35,7 +35,7 @@ mcmc = function(N, chute, hiperv, k, x, v)
 {
 	M=matrix(chute,N,3)
 	colnames(M) = c("beta","alpha","ro")
-	cont = matrix(1,N,3) # MATRIZ PARA A TAXA DE ACEITAÇAO É UMA MATRIZ DE N linhas, 3 colunas
+	cont = matrix(1,N,3) 
 
 	for(i in 1 : (N-1))
 	{
@@ -66,7 +66,7 @@ mcmc = function(N, chute, hiperv, k, x, v)
 if(	(min(1 , teste) < runif(1) ) || (is.infinite(teste)) || (is.nan(teste)) )  # "runif(1)" : gerando 1 valor de uma distribuição Uniforme de parametros 0 e 1
 {
 M[i+1, j] = M[i, j]
-cont[i,j]=0 # CONTADOR PARA TAXA DE ACEITAÇAO
+cont[i,j]=0 
 }    			
 		}
 	}
